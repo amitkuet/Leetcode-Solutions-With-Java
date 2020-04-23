@@ -1,4 +1,4 @@
-# Leetcode-Solutions-With-Java
+# Leetcode-Solution-With-Java
 Leetcode problems solution with Java 8
 
 P.no |     Problem |                Solution | Difficulty | 
