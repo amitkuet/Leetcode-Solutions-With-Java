@@ -68,12 +68,12 @@ public class Solution {
 
 	public static void main(String[] args) {
 		Integer[] nums = { 1, 2, 2, 3, 4, 4, 3 };
-		TreeNode root = MyTree.generateTree(nums, null, 0);
+		TreeNode root = MyTree.generateTree(nums);
 		System.out.println(new Solution().isSymmetric(root)); // Output is true
 		System.out.println(new Solution().isSymmetricIterativeWay(root)); // Output it true
 
 		Integer[] nums2 = { 1, 2, 2, null, 3, null, 3 };
-		root = MyTree.generateTree(nums2, null, 0);
+		root = MyTree.generateTree(nums2);
 		System.out.println(new Solution().isSymmetric(root)); // Output is false
 		System.out.println(new Solution().isSymmetricIterativeWay(root)); // Output is false
 	}
