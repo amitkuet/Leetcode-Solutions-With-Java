@@ -11,7 +11,7 @@ public class Solution {
 		int j = 0;
 		Set<Character> set = new HashSet<>();
 
-		while (i < s.length() && j < s.length()) {
+		while (j < s.length()) {
 			if (!set.contains(s.charAt(j))) {
 				set.add(s.charAt(j++));
 				longestSubStringLength = Math.max(longestSubStringLength, set.size());
