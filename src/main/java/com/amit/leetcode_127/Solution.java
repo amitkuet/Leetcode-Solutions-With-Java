@@ -9,6 +9,45 @@ import java.util.Set;
 
 public class Solution {
 
+	public int ladderLength2(String beginWord, String endWord, List<String> wordList) {
+		Set<String> wordSet = new HashSet<>(wordList);
+		if (!wordSet.contains(endWord)) {
+			return 0;
+		}
+
+		Queue<String> queue = new LinkedList<>();
+		queue.add(beginWord);
+
+		Set<String> visited = new HashSet<>();
+		visited.add(beginWord);
+
+		int changes = 1;
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				String word = queue.poll();
+				if (word.equals(endWord)) {
+					return changes;
+				}
+
+				for (int j = 0; j < word.length(); j++) {
+					for (int k = 'a'; k <= 'z'; k++) {
+						char[] chars = word.toCharArray();
+						chars[j] = (char) k;
+
+						String str = new String(chars);
+						if (wordSet.contains(str) && !visited.contains(str)) {
+							queue.add(str);
+							visited.add(str);
+						}
+					}
+				}
+			}
+			++changes;
+		}
+		return 0;
+	}
+
 	public int ladderLength(String beginWord, String endWord, List<String> wordList) {
 		Set<String> wordSet = new HashSet<>(wordList);
 		if (!wordSet.contains(endWord)) {
@@ -49,6 +88,7 @@ public class Solution {
 		String beginWord = "hit", endWord = "cog";
 		List<String> wordList = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
 		System.out.println(new Solution().ladderLength(beginWord, endWord, wordList)); // Output is 5
+		System.out.println(new Solution().ladderLength2(beginWord, endWord, wordList)); // Output is 5
 	}
 
 }
