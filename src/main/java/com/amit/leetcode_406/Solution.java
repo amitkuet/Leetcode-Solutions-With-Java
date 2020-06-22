@@ -21,7 +21,7 @@ public class Solution {
 		int[][] people = { { 7, 0 }, { 4, 4 }, { 7, 1 }, { 5, 0 }, { 6, 1 }, { 5, 2 } };
 		int[][] res = new Solution().reconstructQueue(people);
 		// [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
-		for (int[] p : people) {
+		for (int[] p : res) {
 			System.out.println(p[0] + ", " + p[1]);
 		}
 	}
