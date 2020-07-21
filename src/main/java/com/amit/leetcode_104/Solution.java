@@ -3,6 +3,13 @@ package com.amit.leetcode_104;
 import helper.MyTree;
 import helper.TreeNode;
 
+/**
+ * 
+ * Time Complexity: O(n) where n is the total number of nodes in the tree.
+ * 
+ * Space Complexity: O(H) where H is the height of the tree.
+ *
+ */
 public class Solution {
 
 	public int maxDepth(TreeNode root) {
