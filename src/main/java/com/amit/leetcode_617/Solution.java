@@ -3,6 +3,15 @@ package com.amit.leetcode_617;
 import helper.MyTree;
 import helper.TreeNode;
 
+/**
+ * 
+ * Time complexity : O(m). A total of m nodes need to be traversed. 
+ * Here, m represents the minimum number of nodes from the two given trees.
+ * 
+ * Space complexity : O(m). The depth of the recursion tree can go upto m in the case of a skewed tree. 
+ * In average case, depth will be O(logm).
+ *
+ */
 public class Solution {
 
 	public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
