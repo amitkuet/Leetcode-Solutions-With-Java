@@ -3,6 +3,13 @@ package com.amit.leetcode_938;
 import helper.MyTree;
 import helper.TreeNode;
 
+/**
+ * 
+ * Time Complexity: O(N), where N is the number of nodes in the tree.
+ * 
+ * Space Complexity: O(H), where H is the height of the tree.
+ *
+ */
 public class Solution {
 
 	int ans = 0;
