@@ -23,5 +23,4 @@ public class Solution {
 		System.out.println(new Solution().findJudge(3, new int[][] { { 1, 3 }, { 2, 3 } })); // Output is 3
 		System.out.println(new Solution().findJudge(3, new int[][] { { 1, 3 }, { 2, 3 }, { 3, 1 } })); // Output is -1
 	}
-
 }
