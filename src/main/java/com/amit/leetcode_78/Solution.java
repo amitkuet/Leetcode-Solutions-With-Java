@@ -12,15 +12,13 @@ public class Solution {
 	}
 
 	private void helper(int[] nums, int index, List<Integer> current, List<List<Integer>> res) {
-		if (index >= nums.length) {
-			res.add(new ArrayList<>(current));
-			return;
+		res.add(new ArrayList<>(current));
+		
+		for(int i = index; i < nums.length; i++) {
+			current.add(nums[i]);
+			helper(nums, i + 1, current, res);
+			current.remove(current.size() - 1);
 		}
-		List<Integer> withCurrent = new ArrayList<>(current);
-		withCurrent.add(nums[index]);
-
-		helper(nums, index + 1, current, res);
-		helper(nums, index + 1, withCurrent, res);
 	}
 
 	public static void main(String[] args) {
