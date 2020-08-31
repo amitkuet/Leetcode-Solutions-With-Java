@@ -1,11 +1,8 @@
 package com.amit.leetcode_103;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
+import java.util.Stack;
 
 class TreeNode {
 	int val;
@@ -28,38 +25,36 @@ class TreeNode {
 
 class Solution {
 	public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-		List<List<Integer>> res = new ArrayList<>();
-		if (root == null) {
-			return res;
-		}
-
-		Map<TreeNode, Integer> map = new HashMap<>();
-		Queue<TreeNode> queue = new LinkedList<>();
-		queue.add(root);
-		map.put(root, 1);
-
-		while (!queue.isEmpty()) {
-			TreeNode current = queue.remove();
-			int level = map.get(current);
-			if (res.size() < level) {
-				res.add(new ArrayList<>());
-			}
-			if (level % 2 != 0) {
-				res.get(level - 1).add(current.val);
-			} else {
-				res.get(level - 1).add(0, current.val);
-			}
-
-			if (current.left != null) {
-				queue.add(current.left);
-				map.put(current.left, level + 1);
-			}
-			if (current.right != null) {
-				queue.add(current.right);
-				map.put(current.right, level + 1);
-			}
-
-		}
-		return res;
-	}
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null)
+            return res;
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<TreeNode> s2 = new Stack<>();
+        
+        s1.push(root);
+        
+        while(!s1.isEmpty() || !s2.isEmpty()) {
+            List<Integer> temp = new ArrayList<>();
+            while(!s1.isEmpty()) {
+                TreeNode node = s1.pop();
+                temp.add(node.val);
+                if(node.left != null)
+                    s2.push(node.left);
+                if(node.right != null)
+                    s2.push(node.right);
+            }
+            res.add(new ArrayList<>(temp));
+            temp.clear();
+            while(!s2.isEmpty()) {
+                TreeNode node = s2.pop();
+                temp.add(node.val);
+                if(node.right != null)
+                    s1.push(node.right);
+                if(node.left != null)
+                    s1.push(node.left);
+            }
+            if(!temp.isEmpty()) res.add(new ArrayList<>(temp));
+        }
+        return res;
+    }
 }
